@@ -12,8 +12,8 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 public class Config {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
-    public static final ForgeConfigSpec.DoubleValue SPAWN_PLAYER_LIKE_CHANCE_PER_TICK =  BUILDER.comment("PlayerLike Entity Spawn Chance Per Tick (Default: 0.0005)").defineInRange("spawn_player_like_chance", 0.01D, 0, 1);
-    public static final ForgeConfigSpec.DoubleValue RANDOM_SOUND_CHANCE_PER_TICK =  BUILDER.comment("Random Sound Chance Per Tick (Default: 0.00005)").defineInRange("random_sound_chance", 0.0005D, 0, 1);
+    public static final ForgeConfigSpec.DoubleValue SPAWN_PLAYER_LIKE_CHANCE_PER_TICK =  BUILDER.comment("PlayerLike entity spawn chance per tick (Default: 0.00005)").defineInRange("spawn_player_like_chance", 0.00005D, 0, 1);
+    public static final ForgeConfigSpec.DoubleValue RANDOM_SOUND_CHANCE_PER_TICK =  BUILDER.comment("Play a werid random sound chance per tick (Default: 0.0005)").defineInRange("random_sound_chance", 0.0005D, 0, 1);
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
 
