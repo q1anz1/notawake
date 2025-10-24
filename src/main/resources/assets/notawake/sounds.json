@@ -1,0 +1,17 @@
+{
+  "scp_horror_1": {
+    "sounds": [
+      "notawake:scp_horror_1",
+      "notawake:scp_horror_2",
+      "notawake:scp_horror_3",
+      "notawake:scp_horror_4",
+      "notawake:scp_horror_5"
+    ],
+    "subtitle": "subtitles.notawake.scp_horror_1"
+  },
+  "bgm1": {
+    "sounds": [
+      "notawake:bgm1"
+    ]
+  }
+}

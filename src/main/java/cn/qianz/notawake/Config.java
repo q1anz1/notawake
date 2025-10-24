@@ -1,0 +1,26 @@
+package cn.qianz.notawake;
+
+import cn.qianz.notawake.entity.PlayerLikeEntity;
+import cn.qianz.notawake.event.RandomSoundEvent;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
+
+
+@Mod.EventBusSubscriber(modid = Notawake.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class Config {
+    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+
+    public static final ForgeConfigSpec.DoubleValue SPAWN_PLAYER_LIKE_CHANCE_PER_TICK =  BUILDER.comment("PlayerLike Entity Spawn Chance Per Tick (Default: 0.0005)").defineInRange("spawn_player_like_chance", 0.01D, 0, 1);
+    public static final ForgeConfigSpec.DoubleValue RANDOM_SOUND_CHANCE_PER_TICK =  BUILDER.comment("Random Sound Chance Per Tick (Default: 0.00005)").defineInRange("random_sound_chance", 0.0005D, 0, 1);
+    static final ForgeConfigSpec SPEC = BUILDER.build();
+
+
+
+    @SubscribeEvent
+    static void onLoad(final ModConfigEvent event) {
+        PlayerLikeEntity.spawnPlayerLikeChancePerTick = SPAWN_PLAYER_LIKE_CHANCE_PER_TICK.get();
+        RandomSoundEvent.randomSoundChancePerTick = RANDOM_SOUND_CHANCE_PER_TICK.get();
+    }
+}
