@@ -23,7 +23,6 @@ import org.slf4j.Logger;
 import static cn.qianz.notawake.entity.ModEntities.PLAYER_LIKE;
 
 @Mod(Notawake.MODID)
-
 public class Notawake {
     public static final String MODID = "notawake";
     private static final Logger LOGGER = LogUtils.getLogger();

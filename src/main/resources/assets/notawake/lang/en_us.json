@@ -1,4 +1,5 @@
 {
   "subtitles.notawake.scp_horror_1": "? ? ?",
-  "entity.notawake.player_like": "? ? ?"
+  "entity.notawake.player_like": "? ? ?",
+  "message.notawake.wake_up_whisper": "You can't sleep because there are too many of them."
 }

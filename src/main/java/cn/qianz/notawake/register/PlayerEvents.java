@@ -3,7 +3,9 @@ package cn.qianz.notawake.register;
 import cn.qianz.notawake.Notawake;
 import cn.qianz.notawake.entity.PlayerLikeEntity;
 import cn.qianz.notawake.event.RandomSoundEvent;
+import cn.qianz.notawake.event.SleepChangeEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -15,5 +17,8 @@ public class PlayerEvents {
         RandomSoundEvent.doRandomSound(event);
     }
 
-
+    @SubscribeEvent
+    public static void onPlayerSleep(PlayerSleepInBedEvent event) {
+        SleepChangeEvent.onPlayerSleep(event);
+    }
 }

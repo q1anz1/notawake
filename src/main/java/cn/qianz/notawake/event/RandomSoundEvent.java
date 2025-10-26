@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class RandomSoundEvent {
         soundEvents.add(SoundEvents.SAND_STEP);
         soundEvents.add(SoundEvents.GLASS_STEP);
     }
+
     public static void doRandomSound(TickEvent.PlayerTickEvent event) {
         if (event.side == LogicalSide.CLIENT) return;
         Player player = event.player;

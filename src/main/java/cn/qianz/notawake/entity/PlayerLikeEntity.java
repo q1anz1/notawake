@@ -34,7 +34,6 @@ import static cn.qianz.notawake.register.ModSoundEvents.BGM1;
 
 @Mod.EventBusSubscriber(modid = Notawake.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PlayerLikeEntity extends PathfinderMob {
-
     private static final int MAX_LIVE_TIME = 2400; // tick
     private static final int DESPAWN_TIME = 7; // tick
     public static final int DESPAWN_DISTANCE_WHEN_LOOK_AT = 30;
@@ -273,7 +272,6 @@ public class PlayerLikeEntity extends PathfinderMob {
                 if (entity != null) {
                     entity.moveTo((int)x, (int)y, (int)z);
                     level.addFreshEntity(entity);
-                    System.out.println("1");
                     break;
                 }
             }
