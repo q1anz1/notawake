@@ -1,13 +1,16 @@
 package cn.qianz.notawake.event;
 
 
+import cn.qianz.notawake.data.WorldStatusData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 
 import java.util.*;
 
@@ -16,7 +19,8 @@ import java.util.*;
  */
 public class TalkerEvent {
     private static final Queue<TalkWord> talkWords = new ArrayDeque<>();
-    private static int guidOverTick;
+    private static final int guidOverTick;
+
 
     static {
         talkWords.add(new TalkWord(1000, Component.translatable("message.notawake.talker.join").getString(), "yellow"));
@@ -33,7 +37,6 @@ public class TalkerEvent {
     }
 
     public static void talkAllGuideWords(TickEvent.LevelTickEvent event) {
-
         if (event.phase != TickEvent.Phase.END || event.level.isClientSide()) return;
         ServerLevel level = (ServerLevel) event.level;
         long gameTime = level.getGameTime();
@@ -51,6 +54,19 @@ public class TalkerEvent {
             talkWords.remove();
         }
     }
+
+    public static void firstWakeUp(PlayerWakeUpEvent event) {
+        Player player = event.getEntity();
+        Level level2 = player.level();
+        if (level2.isClientSide()) return;
+        ServerLevel level = (ServerLevel) level2;
+        WorldStatusData wsd = WorldStatusData.get(level);
+        if (!wsd.getFirstSleepDone()) {
+            wsd.setFirstSleepDone(true);
+            talkToAllWorldPlayer(level, Component.translatable("message.notawake.talker.first_wake_up").getString(), "write");
+        }
+    }
+
     private static void talkToAllWorldPlayer(Level level, String content, String color) {
         if (level.isClientSide) return;
 
