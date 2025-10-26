@@ -1,5 +1,6 @@
 {
   "subtitles.notawake.scp_horror_1": "? ? ?",
   "entity.notawake.player_like": "? ? ?",
-  "message.notawake.wake_up_whisper": "你不能睡觉，因为它们太多了。"
+  "message.notawake.talker_join": "q1anz1 加入了游戏",
+  "message.notawake.talker_left": "q1anz1 退出了游戏"
 }

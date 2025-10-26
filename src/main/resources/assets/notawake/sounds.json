@@ -13,5 +13,12 @@
     "sounds": [
       "notawake:bgm1"
     ]
+  },
+  "attack1": {
+    "sounds": [
+      "notawake:attack1",
+      "notawake:attack2"
+    ],
+    "subtitle": "subtitles.notawake.scp_horror_1"
   }
 }

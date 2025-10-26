@@ -1,5 +1,17 @@
 {
   "subtitles.notawake.scp_horror_1": "? ? ?",
   "entity.notawake.player_like": "? ? ?",
-  "message.notawake.wake_up_whisper": "You can't sleep because there are too many of them."
+  "message.notawake.talker.join": "q1anz1 joined the game",
+  "message.notawake.talker.left": "q1anz1 left the game",
+  "message.notawake.talker.guide1": "<q1anz1> Oh, wow! I noticed that the server was online, so I joined.",
+  "message.notawake.talker.guide2": "<q1anz1> Let's get some woods!",
+  "message.notawake.talker.guide3": "<q1anz1> Wait, where are you?",
+  "message.notawake.talker.guide4": "<q1anz1> No way! my spawn point is 2000 blocks away from you! Why?",
+  "message.notawake.talker.guide5": "<q1anz1> My spawn point is ",
+  "message.notawake.talker.guide6": "<q1anz1> Fine. Let's make some tools first, then I'll come to you or you can come to me",
+  "message.notawake.talker.guide7": "<q1anz1> Holy shit! what is that?!",
+  "message.notawake.talker.guide8": "<q1anz1> looks like a person.",
+  "message.notawake.talker.guide9": "<q1anz1> Fuck.",
+  "message.notawake.talker.first_wake_up": "<q1anz1> Why does the bed break after sleeping? Oh no, I don't have enough wool. It's fine, I'll find some before it gets dark",
+  "message.notawake.talker.go_sleep": "<q1anz1> GET IN THE BED!! please."
 }

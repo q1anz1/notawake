@@ -6,6 +6,7 @@ import cn.qianz.notawake.register.ModSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -30,17 +31,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 import static cn.qianz.notawake.entity.ModEntities.PLAYER_LIKE;
+import static cn.qianz.notawake.register.ModSoundEvents.ATTACK1;
 import static cn.qianz.notawake.register.ModSoundEvents.BGM1;
 
 @Mod.EventBusSubscriber(modid = Notawake.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PlayerLikeEntity extends PathfinderMob {
     private static final int MAX_LIVE_TIME = 2400; // tick
-    private static final int DESPAWN_TIME = 7; // tick
+    private static final int DESPAWN_TIME = 10; // tick
     public static final int DESPAWN_DISTANCE_WHEN_LOOK_AT = 30;
     public static final double DESPAWN_WATCH_ANGLE = 0.5; // cos(x)
     public static final float DESPAWN_VOLUME = 4.0F;
     public static final float DESPAWN_PITCH = 1.0F;
-    public static final float MAXIMUM_DIXATION_DISTANCE = 30.0F;
+    public static final float MAXIMUM_DIXATION_DISTANCE = 50.0F;
     public static final double GENERATE_DISTANCE = 4;
     public static double spawnPlayerLikeChancePerTick;
 
@@ -83,6 +85,16 @@ public class PlayerLikeEntity extends PathfinderMob {
         checkIsBeingStaredAt();
     }
 
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ATTACK1.get();
+    }
+
+    @Override
+    public int getAmbientSoundInterval() {
+        return 200; // 每200 tick尝试播放一次
+    }
+
     private void updateLiveTime() {
         liveTime++;
         if (liveTime> MAX_LIVE_TIME) {
@@ -93,7 +105,7 @@ public class PlayerLikeEntity extends PathfinderMob {
     private void checkIsBeingStaredAt() {
         // 检测玩家注视
         if (isBeingStaredAt()) {
-            if (staredTicks == 1) {
+            if (staredTicks == 5) {
                 List<Player> nearbyPlayers = getNearbyPlayer(DESPAWN_DISTANCE_WHEN_LOOK_AT+30);
                 Player player = getWhoIsStaring(nearbyPlayers);
                 playSoundHorror1ToNearlyWatchedPlayer(player);
@@ -253,6 +265,10 @@ public class PlayerLikeEntity extends PathfinderMob {
         Player player = event.player;
         Level world = player.level();
         ServerLevel level = (ServerLevel) player.level();
+
+        if (player.getY() - 50 > level.getSeaLevel()) {
+            return;
+        }
 
         float playerYaw = player.getYRot();
         double distance = GENERATE_DISTANCE;

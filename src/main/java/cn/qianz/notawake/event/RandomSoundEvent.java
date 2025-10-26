@@ -25,6 +25,8 @@ public class RandomSoundEvent {
         soundEvents.add(SoundEvents.STONE_STEP);
         soundEvents.add(SoundEvents.SAND_STEP);
         soundEvents.add(SoundEvents.GLASS_STEP);
+        soundEvents.add(SoundEvents.GENERIC_SMALL_FALL);
+        soundEvents.add(SoundEvents.GENERIC_BIG_FALL);
     }
 
     public static void doRandomSound(TickEvent.PlayerTickEvent event) {
