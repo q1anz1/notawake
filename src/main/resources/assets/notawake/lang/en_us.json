@@ -12,6 +12,7 @@
   "message.notawake.talker.guide7": "<q1anz1> Holy shit! what is that?!",
   "message.notawake.talker.guide8": "<q1anz1> looks like a person.",
   "message.notawake.talker.guide9": "<q1anz1> Fuck.",
-  "message.notawake.talker.first_wake_up": "<q1anz1> Why does the bed break after sleeping? Oh no, I don't have enough wool. It's fine, I'll find some before it gets dark"
+  "message.notawake.talker.first_wake_up": "<q1anz1> Why does the bed break after sleeping? Oh no, I don't have enough wool. It's fine, I'll find some before it gets dark",
+  "subtitles.notawake.clock_for_collecting_corpse": "Collecting corpses"
 
 }

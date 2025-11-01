@@ -17,7 +17,7 @@ public class PlayerEvents {
         if (event.phase == TickEvent.Phase.END) {
             PlayerLikeEntitySummonIncident.doSummonPlayerLike(event);
             RandomSoundIncident.doRandomSound(event);
-            BgmPlayer.reduceTicker();
+            BgmPlayer.reduceTicker(event);
         }
     }
 
@@ -36,6 +36,6 @@ public class PlayerEvents {
 
     @SubscribeEvent
     public static void onPlaySound(PlaySoundEvent event) {
-        BgmPlayer.stopBgm(event);
+        BgmPlayer.interceptBgm(event);
     }
 }

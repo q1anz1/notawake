@@ -7,6 +7,8 @@ import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.fml.LogicalSide;
 
 public class BgmPlayer {
     private static int ticker = 0;
@@ -23,7 +25,7 @@ public class BgmPlayer {
         }
         SimpleSoundInstance instance = new SimpleSoundInstance(
                 soundEvent.getLocation(), // 声音资源的定位
-                SoundSource.MUSIC,        // 音源分类（如音乐、玩家、环境等）
+                SoundSource.AMBIENT,        // 音源分类（如音乐、玩家、环境等）
                 volume,                     // 音量 (volume)
                 pitch,                    // 音高 (pitch)
                 minecraft.level.random,   // 随机源
@@ -48,21 +50,28 @@ public class BgmPlayer {
     }
 
     private static void setTicker(int ticks) {
-        ticker = ticks;
+        // 为了解决播放时把他妈自己拦截
+        ticker = -ticks;
     }
 
-    public static void reduceTicker() {
+    public static void reduceTicker(TickEvent.PlayerTickEvent event) {
+        if (event.side == LogicalSide.SERVER) return;
         if (ticker > 0) {
             ticker --;
         }
     }
 
-    public static void stopBgm(PlaySoundEvent event) {
+    public static void interceptBgm(PlaySoundEvent event) {
         if (ticker == 0) return;
+        if (ticker < 0) {
+            // 为了解决播放时把他妈自己拦截
+            ticker = -ticker;
+            return;
+        }
         SoundInstance sound = event.getSound();
         if (sound == null) return;
         if (sound.getSource() == SoundSource.MUSIC) {
-            event.setCanceled(true);
+            event.setSound(null);
         }
     }
 }
