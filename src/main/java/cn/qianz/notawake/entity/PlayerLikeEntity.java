@@ -43,8 +43,6 @@ public class PlayerLikeEntity extends PathfinderMob {
     public static final float DESPAWN_VOLUME = 4.0F;
     public static final float DESPAWN_PITCH = 1.0F;
     public static final float MAXIMUM_DIXATION_DISTANCE = 50.0F;
-    public static final double GENERATE_DISTANCE = 4;
-    public static double spawnPlayerLikeChancePerTick;
 
     private int liveTime = 0;
 
@@ -253,44 +251,5 @@ public class PlayerLikeEntity extends PathfinderMob {
         // 如果射线未命中任何方块，或者命中的方块是实体本身的位置，则未被阻挡
         return hitResult.getType() == HitResult.Type.MISS ||
                 hitResult.getBlockPos().equals(this.blockPosition());
-    }
-
-    public static void doSummonPlayerLike(TickEvent.PlayerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END || event.player == null ||  event.player.level().isClientSide()) {
-            return;
-        }
-        if (Math.random() > spawnPlayerLikeChancePerTick) {
-            return;
-        }
-        Player player = event.player;
-        Level world = player.level();
-        ServerLevel level = (ServerLevel) player.level();
-
-        if (player.getY() - 50 > level.getSeaLevel()) {
-            return;
-        }
-
-        float playerYaw = player.getYRot();
-        double distance = GENERATE_DISTANCE;
-
-        for (int i = 0; i < 10; i++) {
-            double angle = Math.toRadians(playerYaw - 90 + (Math.random() * 180 - 90));
-
-            double x = player.getX() + Math.cos(angle) * distance;
-            double z = player.getZ() + Math.sin(angle) * distance;
-            double y = player.getY();
-
-            BlockPos blockPos = new BlockPos((int)x, (int) y, (int)z);
-            BlockPos blockPos2 = new BlockPos((int)x, (int) y + 1, (int)z);
-
-            if (world.getBlockState(blockPos).isAir() && world.getBlockState(blockPos2).isAir()) {
-                PlayerLikeEntity entity = ModEntities.PLAYER_LIKE.get().create(level);
-                if (entity != null) {
-                    entity.moveTo((int)x, (int)y, (int)z);
-                    level.addFreshEntity(entity);
-                    break;
-                }
-            }
-        }
     }
 }

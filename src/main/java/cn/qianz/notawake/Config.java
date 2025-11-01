@@ -1,6 +1,7 @@
 package cn.qianz.notawake;
 
 import cn.qianz.notawake.entity.PlayerLikeEntity;
+import cn.qianz.notawake.event.PlayerLikeEntitySummonIncident;
 import cn.qianz.notawake.event.RandomSoundIncident;
 import cn.qianz.notawake.event.SleepChangeIncident;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -21,7 +22,7 @@ public class Config {
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
-        PlayerLikeEntity.spawnPlayerLikeChancePerTick = SPAWN_PLAYER_LIKE_CHANCE_PER_TICK.get();
+        PlayerLikeEntitySummonIncident.spawnPlayerLikeChancePerTick = SPAWN_PLAYER_LIKE_CHANCE_PER_TICK.get();
         RandomSoundIncident.randomSoundChancePerTick = RANDOM_SOUND_CHANCE_PER_TICK.get();
         SleepChangeIncident.teleportChance = PLAYER_RANDOM_TP_WHEN_SLEEP_CHANCE.get();
     }

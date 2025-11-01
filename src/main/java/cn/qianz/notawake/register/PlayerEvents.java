@@ -1,7 +1,6 @@
 package cn.qianz.notawake.register;
 
 import cn.qianz.notawake.Notawake;
-import cn.qianz.notawake.entity.PlayerLikeEntity;
 import cn.qianz.notawake.event.*;
 import cn.qianz.notawake.util.BgmPlayer;
 import net.minecraftforge.event.TickEvent;
@@ -16,7 +15,7 @@ public class PlayerEvents {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
-            PlayerLikeEntity.doSummonPlayerLike(event);
+            PlayerLikeEntitySummonIncident.doSummonPlayerLike(event);
             RandomSoundIncident.doRandomSound(event);
             BgmPlayer.reduceTicker();
         }
