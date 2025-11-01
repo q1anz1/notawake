@@ -32,7 +32,7 @@ public class ModSoundEvents {
                 new ResourceLocation(MODID, "bgm2")
         );
         NIGHT_BELL = SoundEvent.createVariableRangeEvent(
-                new ResourceLocation(MODID, "nightbell")
+                new ResourceLocation(MODID, "night_bell")
         );
     }
 }

@@ -50,8 +50,7 @@ public class BgmPlayer {
     }
 
     private static void setTicker(int ticks) {
-        // 为了解决播放时把他妈自己拦截
-        ticker = -ticks;
+        ticker = ticks;
     }
 
     public static void reduceTicker(TickEvent.PlayerTickEvent event) {
@@ -63,11 +62,7 @@ public class BgmPlayer {
 
     public static void interceptBgm(PlaySoundEvent event) {
         if (ticker == 0) return;
-        if (ticker < 0) {
-            // 为了解决播放时把他妈自己拦截
-            ticker = -ticker;
-            return;
-        }
+
         SoundInstance sound = event.getSound();
         if (sound == null) return;
         if (sound.getSource() == SoundSource.MUSIC) {
