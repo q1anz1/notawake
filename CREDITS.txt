@@ -1,0 +1,7 @@
+This game utilizes audio assets from SCP: Containment Breach Multiplayer.
+These assets are licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported license.
+Original Author/Licensor: Fusion Creators Studio - EX
+Source Link: https://store.steampowered.com/app/1782380/SCP_Containment_Breach_Multiplayer
+License Link: https://creativecommons.org/licenses/by-sa/3.0/
+
+In accordance with the license terms, this game is also released under the same CC BY-SA 3.0 license.

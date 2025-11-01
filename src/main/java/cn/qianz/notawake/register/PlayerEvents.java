@@ -2,13 +2,12 @@ package cn.qianz.notawake.register;
 
 import cn.qianz.notawake.Notawake;
 import cn.qianz.notawake.entity.PlayerLikeEntity;
-import cn.qianz.notawake.event.DeleteBedEvent;
-import cn.qianz.notawake.event.RandomSoundEvent;
-import cn.qianz.notawake.event.SleepChangeEvent;
-import cn.qianz.notawake.event.TalkerEvent;
+import cn.qianz.notawake.event.*;
+import cn.qianz.notawake.util.BgmPlayer;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -18,20 +17,26 @@ public class PlayerEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
             PlayerLikeEntity.doSummonPlayerLike(event);
-            RandomSoundEvent.doRandomSound(event);
+            RandomSoundIncident.doRandomSound(event);
+            BgmPlayer.reduceTicker();
         }
     }
 
     @SubscribeEvent
     public static void onPlayerSleep(PlayerSleepInBedEvent event) {
 
-        SleepChangeEvent.onPlayerSleep(event);
+        SleepChangeIncident.onPlayerSleep(event);
     }
 
     @SubscribeEvent
     public static void onPlayerWakeUp(PlayerWakeUpEvent event) {
 
-        DeleteBedEvent.deleteBed(event);
-        TalkerEvent.firstWakeUp(event);
+        DeleteBedIncident.deleteBed(event);
+        TalkerIncident.firstWakeUp(event);
+    }
+
+    @SubscribeEvent
+    public static void onPlaySound(PlaySoundEvent event) {
+        BgmPlayer.stopBgm(event);
     }
 }

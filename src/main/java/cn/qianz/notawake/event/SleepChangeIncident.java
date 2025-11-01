@@ -1,8 +1,6 @@
 package cn.qianz.notawake.event;
 
-import cn.qianz.notawake.Notawake;
 import cn.qianz.notawake.register.ModSoundEvents;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -14,7 +12,7 @@ import java.util.Objects;
 /**
  *
  */
-public class SleepChangeEvent {
+public class SleepChangeIncident {
     public static double teleportChance;
 
     public static void onPlayerSleep(PlayerSleepInBedEvent event) {

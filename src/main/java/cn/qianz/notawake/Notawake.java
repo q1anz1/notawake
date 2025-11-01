@@ -1,11 +1,12 @@
 package cn.qianz.notawake;
 
-import cn.qianz.notawake.cilent.renderer.PlayerLikeRenderer;
+import cn.qianz.notawake.client.renderer.PlayerLikeRenderer;
 import cn.qianz.notawake.entity.ModEntities;
 import cn.qianz.notawake.register.ModSoundEvents;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -27,6 +28,7 @@ public class Notawake {
     public static final String MODID = "notawake";
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
+    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MODID);
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
     public Notawake() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

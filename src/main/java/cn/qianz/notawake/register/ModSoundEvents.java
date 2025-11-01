@@ -12,6 +12,7 @@ public class ModSoundEvents {
 
     public static RegistryObject<SoundEvent> SCP_HORROR_1;
     public static SoundEvent BGM1;
+    public static SoundEvent BGM2;
     public static RegistryObject<SoundEvent> ATTACK1;
 
     public static void register() {
@@ -25,6 +26,9 @@ public class ModSoundEvents {
                 ));
         BGM1 = SoundEvent.createVariableRangeEvent(
                 new ResourceLocation(MODID, "bgm1")
+        );
+        BGM2 = SoundEvent.createVariableRangeEvent(
+                new ResourceLocation(MODID, "bgm2")
         );
 
     }

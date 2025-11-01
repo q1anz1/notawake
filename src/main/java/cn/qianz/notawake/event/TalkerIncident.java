@@ -17,7 +17,7 @@ import java.util.*;
 /**
  *
  */
-public class TalkerEvent {
+public class TalkerIncident {
     private static final Queue<TalkWord> talkWords = new ArrayDeque<>();
     private static final int guidOverTick;
 

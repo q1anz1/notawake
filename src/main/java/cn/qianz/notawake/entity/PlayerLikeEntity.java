@@ -1,7 +1,7 @@
 package cn.qianz.notawake.entity;
 
 import cn.qianz.notawake.Notawake;
-import cn.qianz.notawake.event.CustomMusicPlayer;
+import cn.qianz.notawake.util.BgmPlayer;
 import cn.qianz.notawake.register.ModSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -110,7 +110,7 @@ public class PlayerLikeEntity extends PathfinderMob {
                 Player player = getWhoIsStaring(nearbyPlayers);
                 playSoundHorror1ToNearlyWatchedPlayer(player);
                 teleportToPlayersFace(player);
-                CustomMusicPlayer.playSoundLocally(BGM1, true);
+                BgmPlayer.playSoundLocally(BGM1, true);
                 damagePlayerToNearDeath(player);
             }
             staredTicks++;

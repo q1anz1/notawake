@@ -1,4 +1,4 @@
-package cn.qianz.notawake.cilent.renderer;
+package cn.qianz.notawake.client.renderer;
 
 import cn.qianz.notawake.entity.PlayerLikeEntity;
 import net.minecraft.client.model.PlayerModel;

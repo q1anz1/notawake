@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.Random;
 /**
  *
  */
-public class RandomSoundEvent {
+public class RandomSoundIncident {
     public static double randomSoundChancePerTick;
     public static final List<SoundEvent> soundEvents = new ArrayList<>();
 

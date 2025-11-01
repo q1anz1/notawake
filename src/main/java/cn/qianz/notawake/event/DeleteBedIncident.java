@@ -5,10 +5,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Containers;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -21,7 +19,7 @@ import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
 /**
  *
  */
-public class DeleteBedEvent {
+public class DeleteBedIncident {
     public static void deleteBed(PlayerWakeUpEvent event) {
         if (event.getEntity().level().isClientSide) return;
 

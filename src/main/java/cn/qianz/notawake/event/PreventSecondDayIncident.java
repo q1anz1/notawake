@@ -4,7 +4,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraftforge.event.TickEvent;
 
 
-public class PreventSecondDayEvent {
+public class PreventSecondDayIncident {
     public static void preventSecondDay(TickEvent.LevelTickEvent event) {
         if (event.level instanceof ServerLevel level) {
             long time = level.getDayTime();
